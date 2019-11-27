@@ -4,6 +4,8 @@ DATAVOL=/var/lib/openvas/mgr/
 OV_PASSWORD=${OV_PASSWORD:-admin}
 WEB_CERT_FILE=${WEB_CERT_FILE:-""}
 WEB_KEY_FILE=${WEB_KEY_FILE:-""}
+## DISABLE SSL
+echo "HTTP_ONLY=1" > /etc/init.d/openvas-gsa
 
 if [ ! -z "$WEB_CERT_FILE" -a ! -z "$WEB_KEY_FILE" ]; then 
         rm -f /var/lib/openvas/CA/servercert.pem
